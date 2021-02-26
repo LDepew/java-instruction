@@ -43,6 +43,7 @@ public class SwitchStatementApp {
 
 		}
 
+		sc.close();
 		System.out.println("Bye");
 
 	}

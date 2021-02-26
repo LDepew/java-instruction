@@ -43,6 +43,7 @@ public class RelationalOperatorsApp {
 		}
 		}
 		
+		sc.close();
 		System.out.println("Bye");
 
 	}

@@ -2,7 +2,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
 
-public class NumberClassesApp {
+public class ClassDemoApp {
 
 	public static void main(String[] args) {
 		System.out.println("Hello Number Classes!");

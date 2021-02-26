@@ -10,7 +10,7 @@ public class TestScoreApp {
 
         // initialize variables and create a Scanner object
         int scoreTotal = 0;
-        scoreTotal+=;
+        scoreTotal += 0;
         int scoreCount = 0;
         scoreCount++;
         int testScore = 0;
