@@ -1,18 +1,15 @@
 package db;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import business.User;
 
-public class UserList implements DAO<User> {
+public class UserList implements DAOUploadable<User> {
 	private List<User> users;
 
 	public UserList() {
-		//Initialize users to empty ArrayList
+		// initialize users to empty ArrayList
 		users = new ArrayList<>();
 	}
 
@@ -21,7 +18,7 @@ public class UserList implements DAO<User> {
 		// loop through user list to find the user who's id matches 'id'
 		User u = null;
 		
-		for(User user: users) {
+		for (User user: users) {
 			if (user.getId()==id) {
 				u = user;
 			}
@@ -36,7 +33,7 @@ public class UserList implements DAO<User> {
 	}
 
 	@Override
-	public boolean Add(User u) {
+	public boolean add(User u) {
 		try {
 			users.add(u);
 			return true;
@@ -55,6 +52,12 @@ public class UserList implements DAO<User> {
 	@Override
 	public boolean delete(User t) {
 		// not yet implemented
+		return false;
+	}
+
+	@Override
+	public boolean upload() {
+		// TODO Auto-generated method stub
 		return false;
 	}
 

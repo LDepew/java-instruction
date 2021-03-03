@@ -87,7 +87,8 @@ public class MovieTextFile implements DAOUploadable<Movie> {
 							  new FileWriter(moviesFile)))) {
 			//p. 483 - note: this looks different than example in book but works the same
 			for (Movie m: movies) {
-				out.println(m.getId()+"\t"+m.getTitle()+"\t"+m.getRating()+"\t"+m.getYear()
+				out.println(m.getId()+"\t"+m.getTitle()+
+						"\t"+m.getRating()+"\t"+m.getYear()
 				+"\t"+m.getDirector());			
 			}
 			out.close();			
@@ -111,15 +112,9 @@ public class MovieTextFile implements DAOUploadable<Movie> {
 	}
 
 	@Override
-	public boolean Add(Movie t) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	@Override
 	public boolean upload() {
 		boolean success = true;
-		//read the upload file, adding each new movie to movies list
+		// read the upload file, adding each new movie to movies list
 		try {
 			BufferedReader in = new BufferedReader(
 								new FileReader(MOVIE_UPLOAD_FILE_NAME));
@@ -149,12 +144,32 @@ public class MovieTextFile implements DAOUploadable<Movie> {
 			e.printStackTrace();
 			success = false;
 		}
-		//save all records to the file
+		// save all records to the file
 		if (success) {
-			if (!saveAll())
+			if (! saveAll())
 				success = false;
 		}
 		return success;
+		
 	}
 
+	@Override
+	public boolean Add(Movie t) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

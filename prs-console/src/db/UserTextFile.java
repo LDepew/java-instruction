@@ -1,19 +1,18 @@
 package db;
 
 import java.io.*;
-import java.nio.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
+import java.nio.file.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import business.User;
 
-public class UserTextFile implements DAO<User> {
+public class UserTextFile implements DAOUploadable<User> {
 	private static final String USER_FILE_NAME = "users.txt";
 	List<User> users = new ArrayList<>();
 	
 	public UserTextFile() {
-		//fill user list with users from text file
+		// fill user list with users from text file
 		getAll();
 	}
 
@@ -25,8 +24,9 @@ public class UserTextFile implements DAO<User> {
 //				u = user;
 //			}
 //		}
-//		return u; 'don't like multiple return statements'
-		//another way
+//		return u;
+		
+		// another way
 		for (User user: users) {
 			if (user.getId()==id) {
 				return user;
@@ -59,7 +59,6 @@ public class UserTextFile implements DAO<User> {
 					String admStr = fields[8];
 					boolean adm = Boolean.parseBoolean(admStr);
 					
-					
 					User u = new User(id, un, pwd, fn, ln, pn, em, rv, adm);
 					users.add(u);
 					
@@ -73,18 +72,18 @@ public class UserTextFile implements DAO<User> {
 				e.printStackTrace();
 			}
 		}
-		return users;// TODO Auto-generated method stub
+		return users;
 	}
 
 	@Override
-	public boolean Add(User u) {
+	public boolean add(User u) {
 		users.add(u);
 		return saveAll();
 	}
 
 	@Override
 	public boolean update(User u) {
-		//not implemented
+		// not yet implemented
 		return false;
 	}
 
@@ -93,8 +92,8 @@ public class UserTextFile implements DAO<User> {
 		users.remove(u);
 		return saveAll();
 	}
-
-	//this method will be called for any maintenance function (add, update, delete)
+	
+	// this method will be called for any maintence function (add, update, delete)
 	private boolean saveAll() {
 		boolean success = true;
 		Path usersPath = Paths.get(USER_FILE_NAME);
@@ -112,7 +111,7 @@ public class UserTextFile implements DAO<User> {
 				out.print(u.getPhoneNumber()+"\t");
 				out.print(u.getEmail()+"\t");
 				out.print(u.isReviewer()+"\t");
-				out.println(u.isAdmin());
+				out.println(u.isAdmin());				
 			}			
 		} catch (IOException e) {
 			success = false;
@@ -120,5 +119,11 @@ public class UserTextFile implements DAO<User> {
 		}
 		return success;
 	}
-	
+
+	@Override
+	public boolean upload() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

@@ -1,125 +1,106 @@
 package business;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 public class Request {
-	
-	public int id;
-	public int userID;
-	public String description;
-	public String justification;
-	public String dateNeeded;
-	public String deliveryMode;
-	public String status;
-	public double total;
-	public String submittedDate;
-	public String reasonForRejection;
+	private int id;
+	private int userID;
+	private String description;
+	private String justification;
+	private LocalDate dateNeeded;
+	private String deliveryMode;
+	private int statusID;
+	private double total;
+	private LocalDateTime submittedDate;
 	
 	public Request() {
-		super();
+		id = 0;
+		userID = 0;
+		description = "";
+		justification = "";
+		dateNeeded = LocalDate.now();
+		deliveryMode = "";
+		statusID = 1;
+		total = 0.0;
+		submittedDate = null;	
 	}
-
-	public Request(int id, int userID, String description, String justification, String dateNeeded, String deliveryMode,
-			String status, double total, String submittedDate, String reasonForRejection) {
-		super();
-		this.id = id;
-		this.userID = userID;
-		this.description = description;
-		this.justification = justification;
-		this.dateNeeded = dateNeeded;
-		this.deliveryMode = deliveryMode;
-		this.status = status;
-		this.total = total;
-		this.submittedDate = submittedDate;
-		this.reasonForRejection = reasonForRejection;
+	
+	public Request(int inID, int inUserID, String inDescription, String inJustification, 
+							LocalDate inLD, String inDlvMode, int inStatusID, double inTotal,
+							LocalDateTime inSubmitDate) {
+		id = inID;
+		userID = inUserID;
+		description = inDescription;
+		justification = inJustification;
+		dateNeeded = inLD;
+		deliveryMode = inDlvMode;
+		statusID = inStatusID;
+		total = inTotal;
+		submittedDate = inSubmitDate;
 	}
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public int getUserID() {
 		return userID;
 	}
-
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 	public String getJustification() {
 		return justification;
 	}
-
 	public void setJustification(String justification) {
 		this.justification = justification;
 	}
-
-	public String getDateNeeded() {
+	public LocalDate getDateNeeded() {
 		return dateNeeded;
 	}
-
-	public void setDateNeeded(String dateNeeded) {
+	public void setDateNeeded(LocalDate dateNeeded) {
 		this.dateNeeded = dateNeeded;
 	}
-
 	public String getDeliveryMode() {
 		return deliveryMode;
 	}
-
 	public void setDeliveryMode(String deliveryMode) {
 		this.deliveryMode = deliveryMode;
 	}
-
-	public String getStatus() {
-		return status;
+	public int getStatusID() {
+		return statusID;
 	}
-
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatusID(int statusID) {
+		this.statusID = statusID;
 	}
-
 	public double getTotal() {
 		return total;
 	}
-
 	public void setTotal(double total) {
 		this.total = total;
 	}
-
-	public String getSubmittedDate() {
+	public LocalDateTime getSubmittedDate() {
 		return submittedDate;
 	}
-
-	public void setSubmittedDate(String submittedDate) {
+	public void setSubmittedDate(LocalDateTime submittedDate) {
 		this.submittedDate = submittedDate;
 	}
-
-	public String getReasonForRejection() {
-		return reasonForRejection;
-	}
-
-	public void setReasonForRejection(String reasonForRejection) {
-		this.reasonForRejection = reasonForRejection;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Request [id=" + id + ", userID=" + userID + ", description=" + description + ", justification="
-				+ justification + ", dateNeeded=" + dateNeeded + ", deliveryMode=" + deliveryMode + ", status=" + status
-				+ ", total=" + total + ", submittedDate=" + submittedDate + ", reasonForRejection=" + reasonForRejection
+				+ justification + ", dateNeeded=" + dateNeeded + ", deliveryMode=" + deliveryMode + ", statusID="
+				+ statusID + ", total=" + total + ", submittedDate=" + submittedDate
 				+ "]";
 	}
 	
-	
-
 }
