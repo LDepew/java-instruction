@@ -23,6 +23,7 @@ public class PRSConsoleApp {
 			System.out.println("1)\tList Users");
 			System.out.println("2)\tAdd User");
 			System.out.println("3)\tGet User By ID");
+			System.out.println("4)\tDelete User By ID");
 			System.out.println("99)\tExit");
 			System.out.println();
 			
@@ -69,7 +70,18 @@ public class PRSConsoleApp {
 					System.out.println("No user found for id: "+id);
 				}
 				break;
+		case 4: 
+			id = Console.getInt("User ID to delete?: ", 0, Integer.MAX_VALUE);
+			user = userDAO.getById(id);
+			if (user != null) {
+				userDAO.delete(user);
+				System.out.println("User successfully deleted!");
 			}
+			else {
+				System.out.println("Invalid user ID.");
+			}
+			break;
+		}
 			
 		}
 		

@@ -1,4 +1,4 @@
-public class Employee {
+public class Employee implements Displayable {
 
     private int department;
     private String firstName;
@@ -10,7 +10,7 @@ public class Employee {
         this.firstName = firstName;
     }
     public String getDisplayText() {
-    	return department, lastName, firstName;
+    	return getDisplayText();
     }
 	
     @Override

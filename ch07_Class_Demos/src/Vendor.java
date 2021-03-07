@@ -3,18 +3,15 @@ public class Vendor {
 	private String code;
 	private String name;
 	
+	public Vendor() {
+		super();
+	}
 	
 	public Vendor(String code, String name) {
 		super();
 		this.code = "";
 		this.name = "";
 		
-	}
-	public Vendor() {
-		super();
-	}
-	public Vendor() {
-		super();
 	}
 	public String getCode() {
 		return code;

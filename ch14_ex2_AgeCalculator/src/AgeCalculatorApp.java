@@ -38,10 +38,10 @@ public class AgeCalculatorApp {
             // Calculate and print the user's age
             long numDays = ChronoUnit.DAYS.between(birthDate, currentDate);
             
-            if
-            	(currentDate.isBefore(birthDate)));
-            }
-            else {
+            if 
+            	(currentDate.isBefore(birthDate));
+            
+    		else {
             	System.out.println("Invalid Birthday, enter correct date!");
             }
             

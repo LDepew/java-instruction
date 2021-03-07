@@ -78,7 +78,7 @@ public class UserDB implements DAO<User> {
 	@Override
 	public boolean add(User u) {
 		boolean success = false;
-		String sql = "insert into user (id, userName, password, firstName, lastName,"
+		String sql = "insert into user (userName, password, firstName, lastName,"
 				+ "phoneNumber, email, isReviewer, isAdmin) " +
 					 "values (?, ?, ?, ?, ?, ?, ?, ?)";
 		try (Connection conn = getConnection();

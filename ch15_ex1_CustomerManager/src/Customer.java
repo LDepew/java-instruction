@@ -41,4 +41,9 @@ public class Customer {
     public String getName() {
         return firstName + " " + lastName;
     }
+
+	public static void add(Customer c) {
+		// TODO Auto-generated method stub
+		
+	}
 }
