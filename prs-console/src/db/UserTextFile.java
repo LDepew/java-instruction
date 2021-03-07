@@ -7,7 +7,7 @@ import java.util.List;
 
 import business.User;
 
-public class UserTextFile implements DAOUploadable<User> {
+public class UserTextFile implements DAO<User> {
 	private static final String USER_FILE_NAME = "users.txt";
 	List<User> users = new ArrayList<>();
 	
@@ -118,12 +118,6 @@ public class UserTextFile implements DAOUploadable<User> {
 			e.printStackTrace();
 		}
 		return success;
-	}
-
-	@Override
-	public boolean upload() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }

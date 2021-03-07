@@ -5,7 +5,7 @@ import java.util.List;
 
 import business.User;
 
-public class UserList implements DAOUploadable<User> {
+public class UserList implements DAO<User> {
 	private List<User> users;
 
 	public UserList() {
@@ -52,12 +52,6 @@ public class UserList implements DAOUploadable<User> {
 	@Override
 	public boolean delete(User t) {
 		// not yet implemented
-		return false;
-	}
-
-	@Override
-	public boolean upload() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import business.User;
 import db.DAO;
-import db.DAOUploadable;
 import db.UserDB;
 import db.UserList;
 import db.UserTextFile;
