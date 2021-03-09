@@ -1,11 +1,10 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class CardDeckApp {
 
     public static void main(String[] args) {
         System.out.println("DECK");
-        ArrayList<String> deck = new ArrayList<>();
+        ArrayList<String> deck = getDeck();
         displayCards(deck);
 
         System.out.println("SHUFFLED DECK");
@@ -13,22 +12,24 @@ public class CardDeckApp {
         displayCards(deck);
 
         int count = 2;
-        System.out.println("HAND OF " + count + " CARDS");
-        String[] hand = dealCards(deck, count);
-        displayCards(hand);
+        int hands = 4;
+        System.out.println("FOUR HANDS OF " + count + " CARDS");
+        for (int i = 0; i < hands; i++) {
+            ArrayList<String> hand = dealCards(deck, count);
+            displayCards(hand);
+        }
+        System.out.println("CARDS LEFT IN DECK: " + deck.size());
     }
 
-    private static ArrayList<String> getDeck = new ArrayList<>(52) {
-        ArrayList<String> suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
-        ArrayList<String> ranks = {"Ace", "2", "3", "4", "5", "6", "7", 
+    private static ArrayList<String> getDeck() {
+        String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
+        String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", 
             "8", "9", "10", "Jack", "Queen", "King"};        
 
-        String[] deck = new String[52];
-        int i = 0;
+        ArrayList<String> deck = new ArrayList<>(52);
         for (String suit : suits) {
             for (String rank : ranks) {
-                deck[i] = rank + " of " + suit;
-                i++;
+                deck.add(rank + " of " + suit);
             }
         }
         return deck;
@@ -43,16 +44,19 @@ public class CardDeckApp {
     }
 
     private static void shuffleDeck(ArrayList<String> deck) {
-        for (int i = 0; i < deck.length; i++) {
-            String savedCard = deck[i];
-            int randomIndex = (int) (Math.random() * deck.length-1);
-            deck[i] = deck[randomIndex];
-            deck[randomIndex] = savedCard;
+        for (int i = 0; i < deck.size(); i++) {
+            String savedCard = deck.get(i);
+            int randomIndex = (int) (Math.random() * deck.size() - 1);
+            deck.set(i, deck.get(randomIndex));
+            deck.set(randomIndex, savedCard);
         }
     }
 
-    private static String[] dealCards(String[] deck, int count) {
-        String[] hand = Arrays.copyOfRange(deck, 0, count);
+    private static ArrayList<String> dealCards(ArrayList<String> deck, int count) {
+        ArrayList<String> hand = new ArrayList<>(count);
+        for (int i = 0; i < count; i++) {
+            hand.add(deck.remove(i));
+        }
         return hand;
     }
 }

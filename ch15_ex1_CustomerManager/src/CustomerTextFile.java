@@ -11,41 +11,45 @@ public final class CustomerTextFile implements DAO<Customer> {
     private final String FIELD_SEP = "\t";
 
     public CustomerTextFile() {
-        // initialize the class variables
+        customersPath = Paths.get("customers.txt");
+        customersFile = customersPath.toFile();
+        customers = this.getAll();
     }
 
-    
-    public CustomerTextFile(List<Customer> customers, Path customersPath, File customersFile) {
-		super();
-		this.customers = customers;
-		this.customersPath = customersPath;
-		this.customersFile = customersFile;
-	}
-
-
-	@Override
+    @Override
     public List<Customer> getAll() {
         // if the customers file has already been read, don't read it again
         if (customers != null) {
-        	BufferedReader in = new BufferedReader(
-        						new FileReader(customers));
-        	String line = in.readLine();
-        	while (line != null);
-        		String[] fields = line.split("\t");
-        		String firstName = fields[0];
-        		String lastName = fields[1];
-        		String email = fields[2];
-        		
-        		Customer c = new Customer(firstName, lastName, email); 
-					Customer.add(c);
-					
             return customers;
         }
 
         customers = new ArrayList<>();
 
-        // load the array list with Customer objects created from
-        // the data in the file
+        if (Files.exists(customersPath)) { // prevent the FileNotFoundException
+            try (BufferedReader in
+                    = new BufferedReader(
+                            new FileReader(customersFile))) {
+                // read all customers stored in the file
+                // into the array list
+                String line = in.readLine();
+                while (line != null) {
+                    String[] columns = line.split(FIELD_SEP);
+                    String firstName = columns[0];
+                    String lastName = columns[1];
+                    String email = columns[2];
+
+                    Customer c = new Customer(
+                            firstName, lastName, email);
+
+                    customers.add(c);
+
+                    line = in.readLine();
+                }
+            } catch (IOException e) {
+                System.out.println(e);
+                return null;
+            }
+        }
         return customers;
     }
 
@@ -85,7 +89,21 @@ public final class CustomerTextFile implements DAO<Customer> {
     }
 
     private boolean saveAll() {
-        // save the Customer objects in the array list to the file
+        try (PrintWriter out = new PrintWriter(
+                new BufferedWriter(
+                        new FileWriter(customersFile)))) {
+
+            // write all customers in the array list
+            // to the file
+            for (Customer c : customers) {
+                out.print(c.getFirstName() + FIELD_SEP);
+                out.print(c.getLastName() + FIELD_SEP);
+                out.println(c.getEmail());
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+            return false;
+        }
 
         return true;
     }

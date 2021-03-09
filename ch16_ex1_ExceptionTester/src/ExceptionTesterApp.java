@@ -17,6 +17,9 @@ public class ExceptionTesterApp {
 			} catch (FileNotFoundException e) {
 				
 				System.out.println(e.toString());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
        
         System.err.println("\tIn method1: returned from method2.");

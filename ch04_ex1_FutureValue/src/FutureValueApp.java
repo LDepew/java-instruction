@@ -27,8 +27,7 @@ public class FutureValueApp {
             for (int i = 1; i <= months; i++) {
                 futureValue = (futureValue + monthlyInvestment) * 
                               (1 + monthlyInterestRate);
-                //add debug sys.out to display results, make sure runs correctly
-               System.out.println("Month" + i + ":" + futureValue);
+                System.out.println("Month " + i + ": " + futureValue);
             }
 
             // format the result and display it to the user
