@@ -52,9 +52,9 @@ public class WizardInventoryApp {
 				}
 				//grab - grab an item (add n ew item to 'items')
 				//			Prompt user for new item name and add to 'items'
-				String name = Console.getRequiredString("Name:  ");
-				items.add(name);
-				System.out.println(name+ " was added.");
+//				String name = Console.getRequiredString("Name:  ");
+//				items.add(name);
+//				System.out.println(name+ " was added.");
 				break;
 			case "edit":
 				//edit - change the name of an item
