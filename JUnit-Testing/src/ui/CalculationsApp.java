@@ -1,5 +1,6 @@
 package ui;
 
+import business.BasicCalculations;
 import util.Console;
 
 public class CalculationsApp  {
