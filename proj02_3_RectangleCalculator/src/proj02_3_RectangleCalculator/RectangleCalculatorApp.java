@@ -7,10 +7,11 @@ public class RectangleCalculatorApp {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
+		System.out.println("Welcome to the Area and Perimeter Calculator");
+		
 		String choice = "y";
 		while (choice.equalsIgnoreCase("y")) { 
 			
-		System.out.println("Welcome to the Area and Perimeter Calculator");
 		System.out.println(); //blank line
 		System.out.print("Enter length: ");
 		double length = sc.nextDouble();
