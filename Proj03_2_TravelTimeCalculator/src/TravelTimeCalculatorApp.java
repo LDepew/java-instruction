@@ -19,6 +19,7 @@ public class TravelTimeCalculatorApp {
 		System.out.println("---------------------");
 		System.out.println("Hours:   " + Math.round(Miles / MilesPerHour));
 		System.out.println("Minutes: " + Math.round(Miles/ MilesPerHour));
+		System.out.print("Continue? (y/n):");
 		choice = sc.next();
 		}
 		
