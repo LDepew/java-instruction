@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class InterestCalculatorApp {
@@ -10,13 +11,14 @@ public class InterestCalculatorApp {
 		while (choice.equalsIgnoreCase("y")) {
 		
 		System.out.print("Enter loan amount: ");
-		double loanamt = sc.nextDouble();
+		BigDecimal loanAmt = sc.nextBigDecimal();
 		System.out.print("Enter interest amount: ");
-		double interestamt = sc.nextDouble();
+		BigDecimal interestAmt = sc.nextBigDecimal();
 		System.out.println(); //blank line space
-		System.out.println("Loan amount: " + loanamt);
-		System.out.println("Interest amount: " + interestamt);
-		System.out.println("Interest: " + (loanamt * interestamt));
+		BigDecimal interest = loanAmt.multiply(interestAmt);
+		System.out.println("Loan amount: " + loanAmt);
+		System.out.println("Interest amount: " + interestAmt);
+		System.out.println("Interest: " + interest);
 		System.out.print("Continue? (y/n):");
 		choice = sc.next();
 		}
