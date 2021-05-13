@@ -14,11 +14,11 @@ public class TableOfPowersApp {
 		int int1 = sc.nextInt();
 		
 		
+		System.out.println("Number   Squared    Cubed");
+		System.out.println("======   =======    =====");
 		
 		for (int i=1; i<= int1; i++) {
-			System.out.println("Number   Squared    Cubed");
-			System.out.println("======   =======    =====");
-			System.out.println(i + "        " + (i*i) + "         " + (i*i*i));
+			System.out.println(i + "        " + (i*i) + "          " + (i*i*i));
 		}
 		System.out.print("Continue (y/n)?");
 		choice = sc.next();
