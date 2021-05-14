@@ -18,7 +18,10 @@ public class FactorialCalculatorApp {
 			fact = fact * i;
 		}
 		System.out.println("The factorial of " +input+ " is " +fact);
-		
+		System.out.println(); //blank line space
+		System.out.println("Continue (y/n)?");
+		choice = sc.next();
+		}
 		
 		
 		
@@ -35,5 +38,4 @@ public class FactorialCalculatorApp {
 
 	}
 
-}
 }
