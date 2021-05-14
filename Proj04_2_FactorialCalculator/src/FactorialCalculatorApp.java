@@ -10,7 +10,7 @@ public class FactorialCalculatorApp {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("Enter and integer: ");
+		System.out.print("Enter and integer between 1 and 20: ");
 		int input = sc.nextInt();
 		long fact = 1;
 		
