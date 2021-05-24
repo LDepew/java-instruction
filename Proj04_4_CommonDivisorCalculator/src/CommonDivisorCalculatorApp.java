@@ -12,13 +12,19 @@ public class CommonDivisorCalculatorApp {
 		System.out.print("Enter second number:");
 		int y = sc.nextInt();
 		
+		int divisor = 0;
+		
 		while (x != 0) {
-			while (x > y) {
-				
+			while (y >= x) {
+				y = y - x;
 			}
+			divisor = x;
+			x = y;
+			y = divisor;
 		}
 		
-		System.out.println(x + " & " + y);
+		System.out.println("Greatest Common Divisor: " + divisor);
+		System.out.println(); //blank line space
 
 	}
 
