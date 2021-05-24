@@ -5,7 +5,12 @@ public class CommonDivisorCalculatorApp {
 	public static void main(String[] args) {
 		System.out.println("Greatest Common Divisor Finder");
 		
+		
 		Scanner sc = new Scanner(System.in);
+		
+		String choice = "y";
+		
+		while (choice.equalsIgnoreCase("y")) { 
 		
 		System.out.print("Enter first number:");
 		int x = sc.nextInt();
@@ -23,8 +28,15 @@ public class CommonDivisorCalculatorApp {
 			y = divisor;
 		}
 		
+		
 		System.out.println("Greatest Common Divisor: " + divisor);
 		System.out.println(); //blank line space
+		
+		System.out.println("Continue (y/n)?");
+		choice = sc.next();
+		}
+		
+		System.out.println("Bye");
 
 	}
 
