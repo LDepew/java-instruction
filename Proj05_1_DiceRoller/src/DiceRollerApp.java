@@ -9,11 +9,11 @@ public class DiceRollerApp {
 		Scanner sc = new Scanner(System.in);
 		String choice = "y";
 		
+		System.out.print("Roll the dice? (y/n): ");
+		choice = sc.next();
 		
 		while(choice.equalsIgnoreCase("y")) {
 		
-		System.out.print("Roll the dice? (y/n): ");
-		choice = sc.next();
 		System.out.println(); //blank line space
 		
 		int die1 = (int) ((Math.random() * 6) + 1);
@@ -29,10 +29,10 @@ public class DiceRollerApp {
 		if (die1 == 6 && die2 == 6) {
 			System.out.println("Box Car!");
 		}
-		
-		}
+		System.out.println(); //blank line space
 		System.out.print("Roll again? (y/n): ");
 		choice = sc.next();
+		}
 		
 		System.out.println(); //blank line space
 		System.out.println("Bye");
