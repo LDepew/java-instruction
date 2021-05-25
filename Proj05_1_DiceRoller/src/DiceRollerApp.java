@@ -12,12 +12,14 @@ public class DiceRollerApp {
 		
 		System.out.print("Roll the dice? (y/n): ");
 		choice = sc.next();
+		System.out.println(); //blank line space
 		
 		int die1 = (int) ((Math.random() * 6) + 1);
 		int die2 = (int) ((Math.random() * 6) + 1);
 		
 		System.out.println("Die 1: " + die1);
 		System.out.println("Die 2: " + die2);
+		System.out.println("Total: " + (die1 + die2));
 
 	}
 
