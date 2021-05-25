@@ -16,7 +16,8 @@ public class DiceRollerApp {
 		int die1 = (int) ((Math.random() * 6) + 1);
 		int die2 = (int) ((Math.random() * 6) + 1);
 		
-		System.out.println(die1 + " " + die2);
+		System.out.println("Die 1: " + die1);
+		System.out.println("Die 2: " + die2);
 
 	}
 
