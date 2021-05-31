@@ -13,8 +13,17 @@ public class GuessingGameApp {
 		System.out.println("Try to guess it.");
 		System.out.println(); //blank line space
 		
+		int random = (int) ((Math.random() * 100) + 1);
+		
 		System.out.print("Enter number: ");
 		int guess = sc.nextInt();
+		
+		if (random == guess) {
+			System.out.println("Equals");
+		}
+		else {
+			System.out.println("Not");
+		}
 
 	}
 
