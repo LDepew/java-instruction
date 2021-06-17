@@ -9,14 +9,23 @@ public class GuessingGameApp {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		
 		System.out.println("I'm thinking of a number from 1 to 100.");
 		System.out.println("Try to guess it.");
 		System.out.println(); //blank line space
 		
-		int random = (int) ((Math.random() * 100) + 1);
+		String choice = "y";
+		while(choice.equalsIgnoreCase("y")) {
+			
+		int random = (int) ((Math.random() * 1) + 1);
+		
+		int guess = 0;
+		
+		while(random != guess) {		
 		
 		System.out.print("Enter number: ");
-		int guess = sc.nextInt();
+		int guess2 = sc.nextInt();
+		guess2 = guess;
 		
 		if (random == guess) {
 			System.out.println("Equals");
@@ -24,6 +33,14 @@ public class GuessingGameApp {
 		else {
 			System.out.println("Not");
 		}
+		System.out.println("Guess Again");
+		choice = sc.next();
+		}
+		System.out.println("Try Again? (y/n):");
+		choice = sc.next();
+		}
+		
+		System.out.println("Bye - Come back soon!");
 
 	}
 
